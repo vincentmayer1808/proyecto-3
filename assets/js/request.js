@@ -2,7 +2,7 @@ export const makeRequest = async (input) => {
   const latLonData = await makeLatLonRequest(input);
   const { longitude, latitude } = latLonData;
   console.log(longitude);
-  const endpoint = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m,relativehumidity_2m,precipitation_probability,windspeed_10m&daily=temperature_2m_max,temperature_2m_min&timezone=auto`;
+  const endpoint = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m,relativehumidity_2m,precipitation,windspeed_10m&daily=weathercode,temperature_2m_max,temperature_2m_min,precipitation_sum,windspeed_10m_max,winddirection_10m_dominant&timezone=auto`;
   const output = await axios.get(endpoint);
   try {
     console.log(output);
