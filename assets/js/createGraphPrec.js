@@ -17,4 +17,5 @@ createGraphPrec = (canvas, data) => {
       ],
     },
   });
+  return chart
 };
