@@ -13,73 +13,116 @@
     />
     <!-- css -->
     <link rel="stylesheet" href="./assets/css/styles.css" />
-    <title>Document</title>
+    <title>PRÓNOSTICO CLIMA</title>
   </head>
+
   <body>
     <header>
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">WEATHER FORECAST </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <a class="navbar-brand" href="#">PRÓNOSTICO CLIMA</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Inicio</a>
-              </li>  
+                <a class="nav-link active" aria-current="page" href="#"
+                  >Inicio</a
+                >
+              </li>
               <li class="nav-item">
-                <a class="nav-link" href="./assets/pages/Credits.html">Créditos</a>
-              </li>      
-            </ul>  
+                <a class="nav-link" href="./assets/pages/Credits.html"
+                  >Créditos</a
+                >
+              </li>
+            </ul>
           </div>
         </div>
       </nav>
-      
     </header>
+
     <main class="container pt-5">
       <!-- Buscar -->
-      <div class="input-group flex-nowrap">
-          <input type="text" class="form-control" id="indicador" placeholder="Ingrese Ciudad" aria-label="Username" aria-describedby="addon-wrapping">
-          <button type="button" class="btn btn-primary" id="consultar">Consultar</button>
-        
+      <section class="border border-primary rounded border-2 shadow p-3 mb-5 bg-body-tertiary">
+        <div class="input-group flex-nowrap">
+          <label for="indicador" class="form-control"
+            >¿El clima de que ciudad quiere consultar?</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="indicador"
+            placeholder="Ingrese la Ciudad"
+            aria-label="Username"
+            aria-describedby="addon-wrapping"
+          />
+        </div>
+        <!-- Opciones -->
+        <div class="container-fluid pt-3">
+          <p>Seleccione los gráficos de clima que desea consultar:</p>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value="temperatura"
+              id="checkTemp"
+            />
+            <label class="form-check-label" for="checkTemp">
+              Temperatura Promedio
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value="precipitaciones"
+              id="checkPrec"
+            />
+            <label class="form-check-label" for="checkPrec">
+              Precipitación
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value="húmedad"
+              id="checkHum"
+            />
+            <label class="form-check-label" for="checkHum"> Húmedad </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value="viento"
+              id="checkWind"
+            />
+            <label class="form-check-label" for="checkWind">
+              Velocidad del viento
+            </label>
+          </div>
+        </div>
+        <div class="d-grid gap-2 col-6 mx-auto">
+        <button type="button" class="btn btn-primary" id="consultar">
+          Consultar
+        </button>
       </div>
-      <!-- Opciones -->
-      <div class="container-fluid pt-3">
-        <p>Seleccione los gráficos que desea consultar:</p>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-          <label class="form-check-label" for="flexCheckChecked">
-            Temperatura Promedio
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-          <label class="form-check-label" for="flexCheckDefault">
-            Precipitacion
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-          <label class="form-check-label" for="flexCheckDefault">
-            Humedad
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-          <label class="form-check-label" for="flexCheckDefault">
-            Velocidad del viento
-          </label>
-        </div>
-      </div>
-
-
+      </section>
 
       <div id="resultados"></div>
       <div id="contenedorGrafico">
-        <canvas id="grafico"></canvas>
+        <canvas id="graficoPrec"></canvas>
       </div>
-
     </main>
     <!-- Bootstrap carousel -->
     <!-- <script
@@ -87,6 +130,7 @@
       integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
       crossorigin="anonymous"
     ></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- Axios-->

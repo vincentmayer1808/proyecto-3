@@ -1,20 +1,21 @@
+export const createGraphPrec = (canvas, data) => {
+  const hora = data.time.map((elemento) => elemento.split('T').join(' '))
 
-export let createGraphPrec;
-
-createGraphPrec = (canvas, data) => {
   const chart = new Chart(canvas, {
     type: 'bar',
     data: {
-      labels: data.time,
+      labels: hora,
       datasets: [
         {
-          label: 'Precipitation',
+          label: 'Precipitación en mm/hora',
           data: data.precipitation,
           fill: false,
-          borderColor: 'rgb(75, 192, 192)',
+          backgroundColor: 'rgb(0, 89, 255)',
+          borderColor: 'rgb(0, 89, 255)',
           tension: 0.1,
         },
       ],
     },
   });
+  return chart
 };
