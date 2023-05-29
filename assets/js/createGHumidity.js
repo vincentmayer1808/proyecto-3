@@ -1,26 +1,26 @@
-export const createGraphPrec = (canvas, data) => {
+export const createGHumidity = (canvas, data) => {
   try {
     const hora = data.time.map((elemento) => elemento.split('T').join(' '));
 
     const chart = new Chart(canvas, {
-      type: 'bar',
+      type: 'line',
       data: {
         labels: hora,
         datasets: [
           {
-            label: 'Precipitación en mm/hora',
-            data: data.precipitation,
+            label: 'Humedad relativa',
+            data: data.relativehumidity_2m,
             fill: false,
-            backgroundColor: 'rgb(0, 89, 255)',
-            borderColor: 'rgb(0, 89, 255)',
+            borderColor: 'rgb(75, 192, 192)',
             tension: 0.1,
           },
         ],
       },
     });
+
     return chart;
   } catch (error) {
-    let alerta = new swal('No se encontro la precipitación');
+    let alerta = new swal('No se encontro la humedad');
     return alerta;
   }
 };

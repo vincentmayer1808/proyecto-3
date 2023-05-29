@@ -1,27 +1,29 @@
 export const clearG=(chart)=>{
-    // try {      
-    //     if(chart){
-    //         chart.destroy();
-    //     }
-    // } catch (error) {
-    //    console.log("error chartArray"); 
-    // }
-
-    try {
+    try {      
         if(chart){
-            chart.forEach(element => {
-                console.log(element.canvas);
-                element.destroy([0]);  
-                console.log(element.canvas);
-                 
-            });
-            chart.splice(0,chart.length);
-            
-        }else{
-            console.log("array vacio");
+            chart.destroy();
         }
     } catch (error) {
-        console.log(error)
+
+        let alerta = new swal('No se destruyo el grafico');
+        return alerta
     }
+
+    // try {
+    //     if(chart){
+    //         console.log(chart)
+    //         chart.forEach((element) => {
+    //             console.log(element.canvas);
+    //             element.destroy();  
+    //             console.log(element.canvas);
+                 
+    //         });
+    //         chart.splice(0,chart.length); 
+    //     }else{
+    //         console.log("array vacio");
+    //     }
+    // } catch (error) {
+    //     console.log(error)
+    // }
 
 }

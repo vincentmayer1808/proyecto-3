@@ -1,4 +1,4 @@
-const alerta = new swal('Opción Invalida');
+
 
 export const makeRequest = async (input, alerta) => {
   try {
@@ -13,7 +13,8 @@ export const makeRequest = async (input, alerta) => {
       return datos;
     }
   } catch (error) {
-    console.log(alerta);
+    let alerta = new swal('No se encontro el clima');
+    return alerta
   }
 };
 
@@ -33,7 +34,8 @@ const makeLatLonRequest = async (input) => {
       console.log('Error');
     }
   } catch (error) {
-    console.log(alerta);
+    let alerta = new swal('La ciudad no se encontró');
     return alerta
+
   }
 };
