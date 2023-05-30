@@ -1,22 +1,15 @@
-export const ClearG=(chart)=>{
-    // try {      
-    //     if(chart){
-    //         chart.destroy();
-
-    //     }
-    // } catch (error) {
-    //    console.log("error chartArray"); 
-    // }
+export const ClearG=(chartArray)=>{
+    
 
     try {
-        if(chart){
-            chart.forEach(element => {
+        if(chartArray){
+            chartArray.forEach(element => {
                 console.log(element.canvas);
                 element.destroy();  
                 console.log(element.canvas);
                  
             });
-            chart.splice(0,chart.length);
+            chartArray.splice(0,chartArray.length);
             
         }else{
             console.log("array vacio");
