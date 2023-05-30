@@ -10,19 +10,25 @@ const button = document.getElementById('consultar');
 const canva = document.getElementById('grafico');
 const canvaH = document.getElementById('graficoHumidity');
 
-let chart1,chart2
-const handlerRequest = async () => {
-  console.log('handlerRequest');
-  ClearG(chart1);
-  ClearG(chart2);
-  
-  const respuesta = await makeRequest(input);
-  const { daily, hourly } = respuesta;
-  console.log(daily);
-  console.log(hourly);
+const chartArray=[];
 
-  chart1 =createGraphPrec(canva, hourly);
-  chart2= createGHumidity(canvaH,hourly);
+const handlerRequest = async () => {
+  
+  ClearG(chartArray);
+  
+
+  const respuesta = await makeRequest(input);
+  
+  const { daily, hourly } = respuesta;
+  // console.log(daily);
+  console.log(hourly);
+  
+  chartArray.push(createGraphPrec(canva, hourly));
+  chartArray.push(createGHumidity(canvaH,hourly));
+  console.log(chartArray)
+
+  
+
   
   
  
