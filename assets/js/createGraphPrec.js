@@ -11,8 +11,9 @@ createGraphPrec = (canvas, data) => {
           label: 'Precipitation',
           data: data.precipitation,
           fill: false,
-          borderColor: 'rgb(75, 192, 192)',
+          borderColor: 'orange',
           tension: 0.1,
+          backgroundColor:'orange'
         },
       ],
     },

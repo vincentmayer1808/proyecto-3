@@ -39,48 +39,86 @@
     </header>
     <main class="container pt-5">
       <!-- Buscar -->
-      <div class="input-group flex-nowrap">
-          <input type="text" class="form-control" id="indicador" placeholder="Ingrese Ciudad" aria-label="Username" aria-describedby="addon-wrapping">
-          <button type="button" class="btn btn-primary" id="consultar">Consultar</button>
-        
+      <section class="border border-primary rounded border-2 shadow p-3 mb-5 bg-body-tertiary">
+        <div class="input-group flex-nowrap">
+          <label for="indicador" class="form-control"
+            >INSTRUCCIONES: Escibe el nombre de una ciudad, selecciona uno o mas gráficos y luego presiona el botón consultar.</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="indicador"
+            placeholder="Ingrese el nombre de la ciudad aquí"
+            aria-label="Username"
+            aria-describedby="addon-wrapping"
+          />
+        </div>
+        <!-- Opciones -->
+        <div class="container-fluid pt-3">
+          <p>Gráficos:</p>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value="temperatura"
+              id="checkTemp"
+            />
+            <label class="form-check-label" for="checkTemp">
+              Temperatura Promedio
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value="precipitaciones"
+              id="checkPrec"
+            />
+            <label class="form-check-label" for="checkPrec">
+              Precipitación
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value="húmedad"
+              id="checkHum"
+            />
+            <label class="form-check-label" for="checkHum"> Humedad </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value="viento"
+              id="checkWind"
+            />
+            <label class="form-check-label" for="checkWind">
+              Velocidad del viento
+            </label>
+          </div>
+        </div>
+        <div class="d-grid gap-2 col-6 mx-auto">
+        <button type="button" class="btn btn-primary" id="consultar">
+          Consultar
+        </button>
       </div>
-      <!-- Opciones -->
-      <div class="container-fluid pt-3">
-        <p>Seleccione los gráficos que desea consultar:</p>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-          <label class="form-check-label" for="flexCheckChecked">
-            Temperatura Promedio
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-          <label class="form-check-label" for="flexCheckDefault">
-            Precipitacion
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-          <label class="form-check-label" for="flexCheckDefault">
-            Humedad
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-          <label class="form-check-label" for="flexCheckDefault">
-            Velocidad del viento
-          </label>
+      </section>
+
+      <div id="spinner" class="hidden d-flex justify-content-center text-primary">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
         </div>
       </div>
-
-
 
       <div id="resultados"></div>
       <div id="contenedorGrafico">
-        <canvas id="grafico"></canvas>
-        <canvas id="graficoHumidity"></canvas>
+        <canvas id="graficoP"></canvas>
+        <canvas id="graficoH"></canvas>
+        <canvas id="graficoT"></canvas>
+        <canvas id="graficoV"></canvas>
       </div>
-
     </main>
     <!-- Bootstrap carousel -->
     <!-- <script

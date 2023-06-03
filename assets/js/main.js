@@ -2,13 +2,17 @@ import { makeRequest } from './request.js';
 import { createGraphPrec } from './createGraphPrec.js';
 import { createGHumidity } from './createGHumidity.js';
 import { ClearG } from './ClearG.js';
+import { createGwind } from './createGraphWind.js';
+import { createGtemp } from './createGraphTemp.js';
 
 
 
 const input = document.getElementById('indicador');
 const button = document.getElementById('consultar');
-const canva = document.getElementById('grafico');
-const canvaH = document.getElementById('graficoHumidity');
+const canvaT= document.getElementById('graficoT');
+const canvaH = document.getElementById('graficoH');
+const canvaP = document.getElementById('graficoP');
+const canvaV = document.getElementById('graficoV');
 
 const chartArray=[];
 
@@ -23,8 +27,11 @@ const handlerRequest = async () => {
   // console.log(daily);
   console.log(hourly);
   
-  chartArray.push(createGraphPrec(canva, hourly));
+  chartArray.push(createGraphPrec(canvaP, hourly));
   chartArray.push(createGHumidity(canvaH,hourly));
+  chartArray.push(createGwind(canvaV,hourly));
+  chartArray.push(createGtemp(canvaT,hourly));
+
   console.log(chartArray)
 
   
