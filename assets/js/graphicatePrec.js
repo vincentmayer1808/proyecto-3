@@ -1,8 +1,13 @@
-export const createGraphPrec = (canvas, data) => {
+let chart;
+
+export const graphicatePrec = (canvas, data) => {
   try {
+    if(chart){
+      chart.destroy()
+    }
     const hora = data.time.map((elemento) => elemento.split('T').join(' '));
 
-    const chart = new Chart(canvas, {
+     chart = new Chart(canvas, {
       type: 'bar',
       data: {
         labels: hora,
@@ -18,9 +23,9 @@ export const createGraphPrec = (canvas, data) => {
         ],
       },
     });
-    return chart;
   } catch (error) {
-    let alerta = new swal('No se encontro la precipitación');
-    return alerta;
+    console.log(error)
+    // let alerta = new swal('No se encontro la precipitación');
+    // return alerta;
   }
 };
