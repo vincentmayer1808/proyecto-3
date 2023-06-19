@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resumen Pago</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <h1>Resumen de pago Drivers</h1>
+    <div id="data-container">
+        <label for="driver-select">Selecciona a un driver:</label>
+        <select id="driver-select"></select>
+        
+        <label for="extra-payment">¿Cumplio con el bono de puntualidad?</label>
+        <select id="extra-payment-select">
+            <option value="no">No</option>
+            <option value="si">Sí</option>
+        </select>
+
+        <button id="show-button" class="button">Mostrar Información</button>
+        <div id="total-km"></div>
+        <div id="total-rutas"></div>
+        <div id="total-viajes"></div>
+        <div id="tarjeta" class="card"></div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
